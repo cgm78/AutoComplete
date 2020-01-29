@@ -1,0 +1,36 @@
+{  "type": "Feature",
+   "geometry": {
+      "type": "Planet",
+      "coordinates": [125.6, 10.1]
+   },
+   "properties": {
+      "name": "Mars"
+   }
+}
+{  "type": "Feature",
+   "geometry": {
+      "type": "Planet",
+      "coordinates": [125.6, 10.1]
+   },
+   "properties": {
+      "name": "Venus"
+   }
+}
+{  "type": "Feature",
+   "geometry": {
+      "type": "Planet",
+      "coordinates": [125.6, 10.1]
+   },
+   "properties": {
+      "name": "Earth"
+   }
+}
+{  "type": "Feature",
+   "geometry": {
+      "type": "Mercury",
+      "coordinates": [125.6, 10.1]
+   },
+   "properties": {
+      "name": "Jupiter"
+   }
+}

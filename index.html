@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="testCSS.css">
-</head>     
-<body>
-<h2>Autocomplete</h2>
-<p>Start typing:</p>
-<!--Make sure the form has the autocomplete function switched off:-->
-<form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="leafletPlanet" placeholder="planets...">
-  </div>
-  <input type="submit">
-</form>
-<script src="autocompletetest.js"></script> 
-<script>
-  var FILEPOINTER1 = '{"type": "Feature",	"geometry": {"type": "Planet","coordinates":[125.6, 10.1] },"properties": {"name": "Mars" }}';
-  var FILEPOINTER2 = '{"type": "Feature",	"geometry": {"type": "Planet","coordinates":[125.6, 10.1] },"properties": {"name": "Venus" }}';
-  var FILEPOINTER3 = '{"type": "Feature",	"geometry": {"type": "Planet","coordinates":[125.6, 10.1] },"properties": {"name": "Earth" }}';
-  var planets = [];
-  planets.push(FILEPOINTER1);
-  planets.push(FILEPOINTER2);
-  planets.push(FILEPOINTER3);
-  var newPlanets = [];
-  var fileIndex = 0;
-  while (planets[fileIndex] != null){
-    newPlanets.push(importGeoJsonFile(planets[fileIndex]));
-    fileIndex++;
-  }
-  autocomplete(document.getElementById("myInput"), newPlanets);
-</script>
+<html lang="en">
+	<script>
+	import autoComplete from "./autoComplete";
+	</script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/js/autoComplete.min.js"></script>
+	<script src="./autoComplete.js/dist/js/autoComplete.js"></script>
+	<head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@7.2.0/dist/css/autoComplete.min.css">
+	</head>
+	<input id="autoComplete" tabindex="1">   <!-- Default "id" value = "autoComplete"> -->
+	<body>
+	<script src="./autoComplete.js/dist/js/autoComplete.min.js"></script>
+	<script src="./require.js"></script>
+	<script src="./customIndex.js"></script>
+	<!--<script src="./customIndex.js" type="module"></script> -->
+	
+	
 </body>
+	
 </html>

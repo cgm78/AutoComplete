@@ -1,0 +1,13 @@
+jQuery
+Autocomplete.js
+auto-complete.min.js
+jQuery Autocomplete
+typeahead.js
+Horsey
+Easyautocomplete
+MagicSuggest
+jQuery Autocompleter
+xdsoft autocomplete
+jQuery AutoComplete PixaBay
+Flexselect
+https://ourcodeworld.com/articles/read/193/top-10-best-autocomplete-jquery-and-javascript-plugins

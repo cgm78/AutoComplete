@@ -1,19 +1,32 @@
 //define("require");
 //require(['@tarekraafat/autocomplete.js/dist/js/autoComplete']);
-const autoComplete = require(["@tarekraafat/autocomplete.js/dist/js/autoComplete"]);
+function loadGeoJson(data) {
+    console.log(data);
+    console.log("We are here, autocomplete is empty");
+    JSON.parse(data.features.name);
+         }
 new autoComplete({
     data: {                              // Data src [Array, Function, Async] | (REQUIRED)
       src: async () => {
         // API key token
-        const token = "this_is_the_API_token_number";
+        //const token = "this_is_the_API_token_number";
         // User search query
-        const query = document.querySelector("#autoComplete").value;
+        //const query = document.querySelector("#autoComplete").value;
         // Fetch External Data Source
-        const source = await fetch("https://wms.wr.usgs.gov/cgi-bin/mapserv?map=/maps/mars/mars_nomen_wfs.map&service=WFS&request=GetCapabilities");
+        //const source = await fetch("https://astrocloud.wr.usgs.gov/dataset/data/nomenclature/MARS/WFS?version=1.1.0.0&service=WFS&request=GetFeature&srsname=EPSG4326&outputFormat=application/json");
         // Format data into JSON
-        const data = await source.json();
+        //const data = await source.json();
         // Return Fetched data
-        return source.WFS_Capabilities.FeatureType.Name;
+        //return source;     
+        //jsonFile = jQuery.getJSON("https://astrocloud.wr.usgs.gov/dataset/data/nomenclature/MARS/WFS?version=1.1.0.0&service=WFS&request=GetFeature&srsname=EPSG4326&outputFormat=application/json");
+        //document.write(jsonFile);
+        $.ajax({
+            url: "https://astrocloud.wr.usgs.gov/dataset/data/nomenclature/MARS/WFS?version=1.1.0.0&service=WFS&request=GetFeature&srsname=EPSG4326&outputFormat=application/json",
+            dataType: 'json',
+            success: loadGeoJson,
+            timeout : 120000
+            });
+
       },
       key: ["title"],
       cache: false
@@ -23,18 +36,17 @@ new autoComplete({
             return query.replace("pizza", "burger");
           }
     },*/
-    sort: (a, b) => {                    // Sort rendered results ascendingly | (Optional)
+    sort: (a, b) => {                    
         if (a.match < b.match) return -1;
         if (a.match > b.match) return 1;
         return 0;
     },
-    placeHolder: "Nomenclature",     // Place Holder text                 | (Optional)
-    selector: "#autoComplete",           // Input field selector              | (Optional)
-    threshold: 3,                        // Min. Chars length to start Engine | (Optional)
-    debounce: 300,                       // Post duration for engine to start | (Optional)
-    searchEngine: "loose",              // Search Engine type/mode           | (Optional)
-    resultsList: {                       // Rendered results list object      | (Optional)
-        render: true,
+    placeHolder: "Nomenclature",     
+    selector: "#autoComplete",          
+    threshold: 3,                       
+    debounce: 300,                       
+    searchEngine: "loose",              
+    resultsList: {                       
         container: source => {
             source.setAttribute("id", "nomenclature");
         },
@@ -42,9 +54,9 @@ new autoComplete({
         position: "afterend",
         element: "ul"
     },
-    maxResults: 5,                         // Max. number of rendered results | (Optional)
-    highlight: true,                       // Highlight matching results      | (Optional)
-    resultItem: {                          // Rendered result item            | (Optional)
+    maxResults: 5,                         
+    highlight: true,                       
+    resultItem: {                          
         content: (data, source) => {
             source.innerHTML = data.match;
         },

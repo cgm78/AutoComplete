@@ -3,7 +3,10 @@ document.querySelector("#autoComplete").addEventListener("autoComplete", functio
     console.log(event.detail);
   });
 
-//Declares a new autocomplete that is ran when the user enters more data into the autocomplete box.
+/**
+ * @class autoComplete
+ * @classdesc Declares a new autocomplete that is ran when the user enters more data into the autocomplete box.
+ */
 var newAutocomplete = new autoComplete({
     //Defines the data that will be returned inside of the autocomplete.
     data: { 
@@ -85,9 +88,14 @@ var newAutocomplete = new autoComplete({
         result.innerHTML = "No Results";
         document.querySelector("#autoComplete_list").appendChild(result);
     },*/
-    //Runs a script on the selection of a result item, will be used to edit the url for search queries.
-    onSelection: feedback => {             // Action script onSelection event | (Optional)
-       //Cretes string used for searching with the selected name.
+
+    /**
+     * @function onSelection
+     * @description Runs a script on the selection of a result item, will be used to edit the url for search queries.
+     * @param {JSON} feedback
+     */
+    onSelection: feedback => {             
+       //Creates string used for searching with the selected name.
         var URLString = ("https://planetarynames.wr.usgs.gov/SearchResults?feature=" + feedback.selection.value.clean_feature);
         //Replaces spaces with %20 for encoded URL string.
         var encodedURLString = URLString.replace(" ", "%20");
@@ -96,3 +104,11 @@ var newAutocomplete = new autoComplete({
     }
 });
 
+/*
+function unrenderBox(){
+  var newAutocomplete = new autoComplete({
+      resultsList: {
+        render = false,
+      },
+  }),
+}*/
